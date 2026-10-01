@@ -1,16 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, intitial-
-    scale=1.0">
-    <title>Smartwarehouse AI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartWarehouse AI</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #132238;
+      --muted: #5e6b7c;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --border: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #eef5ff 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .actions button {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--accent);
+      color: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .actions button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+    }
+
+    .panel {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+      color: white;
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .panel ul {
+      padding-left: 18px;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .card h4 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .card .value {
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>📦SmartWarehouse AI</h1>
-    <h2>Inventory Dashboard</h2>
-    <p>Welcome to SmartWarehouse AI</p>
-    <button>View Inventory</button>
+  <div class="page">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">AI-powered warehouse operations</span>
+        <h1>SmartWarehouse AI</h1>
+        <p>Monitor inventory, reduce stockouts, and keep your fulfillment flow running smoothly from one clean dashboard.</p>
+        <div class="actions">
+          <button>View Inventory</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Today at a glance</h3>
+        <ul>
+          <li>12 high-priority restocks</li>
+          <li>3 shipments delayed</li>
+          <li>98.4% pick accuracy</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="card">
+        <h4>Total SKUs</h4>
+        <div class="value">1,248</div>
+      </article>
+      <article class="card">
+        <h4>Low stock alerts</h4>
+        <div class="value">24</div>
+      </article>
+      <article class="card">
+        <h4>Orders in transit</h4>
+        <div class="value">86</div>
+      </article>
+    </section>
+  </div>
 </body>
 </html>
