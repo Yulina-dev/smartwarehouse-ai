@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Helpdesk Dashboard | Deskflow</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" aria-label="Deskflow home">
+        <span class="brand-mark" aria-hidden="true">d</span>
+        <span>deskflow</span>
+      </a>
+
+      <p class="nav-label">Workspace</p>
+      <nav class="nav">
+        <a class="active" href="#overview" aria-current="page"><span class="nav-icon" aria-hidden="true">▦</span>Overview</a>
+        <a href="#tickets"><span class="nav-icon" aria-hidden="true">▤</span>All tickets <span class="nav-count" id="nav-ticket-count">24</span></a>
+        <a href="#tickets" data-status-link="Open"><span class="nav-icon" aria-hidden="true">◷</span>Unassigned <span class="nav-count">8</span></a>
+        <a href="#activity"><span class="nav-icon" aria-hidden="true">⌁</span>Activity</a>
+      </nav>
+
+      <p class="nav-label manage-label">Manage</p>
+      <nav class="nav">
+        <a href="#tickets"><span class="nav-icon" aria-hidden="true">♧</span>Customers</a>
+        <a href="#settings"><span class="nav-icon" aria-hidden="true">⚙</span>Settings</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <section class="help-card">
+          <strong>Need a hand?</strong>
+          <p>Visit our help center for tips on managing your inbox.</p>
+          <button type="button" class="text-button" id="help-button">Open help center <span aria-hidden="true">→</span></button>
+        </section>
+        <div class="profile">
+          <span class="avatar" aria-hidden="true">Y</span>
+          <span class="profile-copy"><strong>Yulina</strong><small>Support Admin</small></span>
+          <span class="profile-more" aria-hidden="true">···</span>
+        </div>
+      </div>
+    </aside>
+
+    <main id="overview">
+      <header class="topbar">
+        <div class="crumbs">
+          <button class="icon-button mobile-menu" type="button" id="menu-button" aria-label="Toggle navigation">☰</button>
+          <span>Workspace</span><span aria-hidden="true">/</span><strong>Overview</strong>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button notification-button" type="button" id="notification-button" aria-label="Notifications">♧<span class="notification-dot"></span></button>
+          <span class="avatar" aria-label="Yulina">Y</span>
+        </div>
+      </header>
+
+      <section class="heading-row">
+        <div>
+          <h1>Good morning, Yulina <span aria-hidden="true">☀️</span></h1>
+          <p class="subtitle">Here’s what’s happening with your support team today.</p>
+        </div>
+        <button class="primary-button" type="button" id="new-ticket-button"><span aria-hidden="true">＋</span> New ticket</button>
+      </section>
+
+      <section class="stats" aria-label="Support overview">
+        <article class="stat-card">
+          <div class="stat-top"><span>Total tickets</span><span class="stat-icon blue" aria-hidden="true">▤</span></div>
+          <p class="stat-value" id="stat-total">24</p>
+          <p class="stat-note"><strong class="trend">+12%</strong> compared to last week</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Open tickets</span><span class="stat-icon amber" aria-hidden="true">◷</span></div>
+          <p class="stat-value" id="stat-open">8</p>
+          <p class="stat-note">Needs a response from your team</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Resolved today</span><span class="stat-icon green" aria-hidden="true">✓</span></div>
+          <p class="stat-value">16</p>
+          <p class="stat-note"><strong class="trend">+8%</strong> from yesterday</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Avg. response time</span><span class="stat-icon red" aria-hidden="true">◴</span></div>
+          <p class="stat-value">2.4<small>h</small></p>
+          <p class="stat-note">Within your 4-hour target</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div><h2 class="panel-title">Ticket volume</h2><p class="panel-subtitle">Tickets received and resolved over time</p></div>
+            <select class="select-control" id="chart-period" aria-label="Chart time period">
+              <option value="week">This week</option>
+              <option value="month">This month</option>
+            </select>
+          </div>
+          <div class="chart-wrap" role="img" aria-label="Bar chart showing tickets received and resolved over the past week">
+            <div class="chart">
+              <div class="y-axis" aria-hidden="true"><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span></div>
+              <div class="chart-main">
+                <div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="bars" id="chart-bars">
+                  <div class="bar-group"><span class="bar resolved" style="height:40%"></span><span class="bar received" style="height:53%"></span></div>
+                  <div class="bar-group"><span class="bar resolved" style="height:55%"></span><span class="bar received" style="height:48%"></span></div>
+                  <div class="bar-group"><span class="bar resolved" style="height:47%"></span><span class="bar received" style="height:68%"></span></div>
+                  <div class="bar-group"><span class="bar resolved" style="height:72%"></span><span class="bar received" style="height:61%"></span></div>
+                  <div class="bar-group"><span class="bar resolved" style="height:61%"></span><span class="bar received" style="height:78%"></span></div>
+                  <div class="bar-group"><span class="bar resolved" style="height:84%"></span><span class="bar received" style="height:68%"></span></div>
+                  <div class="bar-group"><span class="bar resolved" style="height:67%"></span><span class="bar received" style="height:83%"></span></div>
+                </div>
+                <div class="x-axis" id="chart-labels" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="legend"><span><i class="legend-resolved"></i>Resolved</span><span><i class="legend-received"></i>Received</span></div>
+        </article>
+
+        <article class="panel activity-panel" id="activity">
+          <div class="panel-head"><div><h2 class="panel-title">Recent activity</h2><p class="panel-subtitle">Latest updates from your team</p></div></div>
+          <div class="activity-list">
+            <div class="activity"><span class="activity-icon" aria-hidden="true">▤</span><div><p><strong>Alex Morgan</strong> resolved ticket <strong>#TK-1042</strong></p><time>12 minutes ago</time></div></div>
+            <div class="activity"><span class="activity-icon" aria-hidden="true">✉</span><div><p><strong>Sam Lee</strong> replied to a customer</p><time>38 minutes ago</time></div></div>
+            <div class="activity"><span class="activity-icon" aria-hidden="true">♧</span><div><p><strong>Taylor Kim</strong> joined the support team</p><time>1 hour ago</time></div></div>
+            <div class="activity"><span class="activity-icon" aria-hidden="true">⌁</span><div><p><strong>Jamie Park</strong> updated ticket priority</p><time>2 hours ago</time></div></div>
+          </div>
+          <a class="view-all" href="#tickets">View all activity <span aria-hidden="true">→</span></a>
+        </article>
+      </section>
+
+      <section class="panel tickets-panel" id="tickets">
+        <div class="panel-head">
+          <div><h2 class="panel-title">Recent tickets</h2><p class="panel-subtitle">Stay on top of your latest customer requests</p></div>
+          <div class="ticket-tools">
+            <label class="search-control"><span aria-hidden="true">⌕</span><input id="ticket-search" type="search" placeholder="Search tickets..." aria-label="Search tickets"></label>
+            <select class="select-control status-filter" id="status-filter" aria-label="Filter tickets by status">
+              <option value="all">All status</option><option value="Open">Open</option><option value="In progress">In progress</option><option value="Resolved">Resolved</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Ticket</th><th>Requester</th><th>Status</th><th>Priority</th><th>Assignee</th><th>Updated</th></tr></thead>
+            <tbody id="ticket-rows">
+              <tr data-status="Open"><td><span class="ticket-id">#TK-1048</span><span class="ticket-subject"> · Login issue</span></td><td><span class="requester"><span class="mini-avatar">OC</span>Olivia Chen</span></td><td><span class="status open">Open</span></td><td><span class="priority high">High</span></td><td>Alex Morgan</td><td>8 min ago</td></tr>
+              <tr data-status="In progress"><td><span class="ticket-id">#TK-1047</span><span class="ticket-subject"> · Update billing details</span></td><td><span class="requester"><span class="mini-avatar">NB</span>Noah Bennett</span></td><td><span class="status progress">In progress</span></td><td><span class="priority medium">Medium</span></td><td>Sam Lee</td><td>24 min ago</td></tr>
+              <tr data-status="Open"><td><span class="ticket-id">#TK-1046</span><span class="ticket-subject"> · Missing order confirmation</span></td><td><span class="requester"><span class="mini-avatar">SP</span>Sophia Patel</span></td><td><span class="status open">Open</span></td><td><span class="priority low">Low</span></td><td>Unassigned</td><td>1 hour ago</td></tr>
+              <tr data-status="Resolved"><td><span class="ticket-id">#TK-1045</span><span class="ticket-subject"> · Password reset request</span></td><td><span class="requester"><span class="mini-avatar">EW</span>Ethan Wilson</span></td><td><span class="status resolved">Resolved</span></td><td><span class="priority medium">Medium</span></td><td>Jamie Park</td><td>2 hours ago</td></tr>
+              <tr data-status="In progress"><td><span class="ticket-id">#TK-1044</span><span class="ticket-subject"> · App keeps crashing</span></td><td><span class="requester"><span class="mini-avatar">AM</span>Ava Martinez</span></td><td><span class="status progress">In progress</span></td><td><span class="priority high">High</span></td><td>Taylor Kim</td><td>3 hours ago</td></tr>
+            </tbody>
+          </table>
+          <div class="empty-state" id="empty-state" hidden>No tickets match your search.</div>
+        </div>
+        <div class="table-footer"><span id="table-count">Showing 5 of 24 tickets</span><div class="pagination"><button type="button" aria-label="Previous page" disabled>‹</button><button type="button" class="current" aria-current="page">1</button><button type="button" aria-label="Next page">›</button></div></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="ticket-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-head"><h2 id="dialog-title">Create a ticket</h2><button class="dialog-close" type="button" id="close-dialog" aria-label="Close">×</button></div>
+    <form class="ticket-form" id="ticket-form">
+      <div class="field"><label for="requester-name">Requester name</label><input id="requester-name" name="requester" required maxlength="60" placeholder="e.g. Avery Yulina"></div>
+      <div class="field"><label for="ticket-subject">Subject</label><input id="ticket-subject" name="subject" required maxlength="100" placeholder="Briefly describe the issue"></div>
+      <div class="field"><label for="ticket-priority">Priority</label><select id="ticket-priority" name="priority"><option>Medium</option><option>High</option><option>Low</option></select></div>
+      <div class="form-actions"><button class="secondary-button" type="button" id="cancel-dialog">Cancel</button><button class="primary-button" type="submit">Create ticket</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
