@@ -7,7 +7,7 @@
 # The generation satisfies level 3 for the provenance requirements - see https://slsa.dev/spec/v0.1/requirements
 # The project is an initiative of the OpenSSF (openssf.org) and is developed at
 # https://github.com/slsa-framework/slsa-github-generator.
-# The provenance file can be verified using https://github.com/slsa-framework/slsa-verifier.
+# The provenance file can be verified using https://github.contentsm/slsa-framework/slsa-verifier.
 # For more information about SLSA and how it improves the supply-chain, visit slsa.dev.
 
 name: SLSA generic generator
@@ -52,7 +52,7 @@ jobs:
           # List the artifacts the provenance will refer to.
           files=$(ls artifact*)
           # Generate the subjects (base64 encoded).
-          echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+          echo "digests=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
     needs: [build]
